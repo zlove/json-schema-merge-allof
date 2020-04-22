@@ -2,11 +2,13 @@
   "name": "json-schema-merge-allof",
   "version": "0.6.0",
   "description": "Simplify your schema by combining allOf into the root schema, safely.",
-  "main": "src/index.js",
+  "main": "dist/index.js",
+  "module": "src/index.js",
   "scripts": {
     "eslint": "eslint src test",
     "test": "npm run eslint && nyc --reporter=html --reporter=text mocha test/specs",
     "develop": "mocha test/specs --recursive --watch",
+    "build": "NODE_ENV=production babel ./src/index.js --out-dir ./dist",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "directories": {
@@ -29,6 +31,10 @@
   },
   "homepage": "https://github.com/mokkabonna/json-schema-merge-allof#readme",
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.9.5",
+    "@babel/preset-env": "^7.9.5",
     "ajv": "^5.2.3",
     "chai": "^4.1.2",
     "coveralls": "^3.0.0",
@@ -47,7 +53,8 @@
   },
   "dependencies": {
     "compute-lcm": "^1.1.0",
+    "core-js": "^3.6.5",
     "json-schema-compare": "^0.2.2",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.15"
   }
 }
