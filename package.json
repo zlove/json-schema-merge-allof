@@ -3,7 +3,6 @@
   "version": "0.6.0",
   "description": "Simplify your schema by combining allOf into the root schema, safely.",
   "main": "dist/index.js",
-  "module": "src/index.js",
   "scripts": {
     "eslint": "eslint src test",
     "test": "npm run eslint && nyc --reporter=html --reporter=text mocha test/specs",
@@ -12,7 +11,8 @@
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "directories": {
-    "lib": "src",
+    "lib": "dst",
+    "src": "src",
     "test": "test"
   },
   "repository": {
@@ -53,8 +53,7 @@
   },
   "dependencies": {
     "compute-lcm": "^1.1.0",
-    "core-js": "^3.6.5",
-    "json-schema-compare": "^0.2.2",
+    "json-schema-compare": "https://github.com/zlove/json-schema-compare",
     "lodash": "^4.17.15"
   }
 }
